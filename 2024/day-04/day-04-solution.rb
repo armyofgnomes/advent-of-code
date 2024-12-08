@@ -1,16 +1,11 @@
 #!/usr/bin/env ruby
 
+require_relative '../helpers/matrix'
+
 # Part 1, find all occurrences of XMAS
 file = File.read('2024/day-04/day-04-inputs.txt')
 
-matrix = []
-# Convert characters into a 2d matrix
-file.each_line.with_index do |line, y|
-  line.chomp.each_char.with_index do |char, x|
-    matrix[y] ||= []
-    matrix[y][x] = char
-  end
-end
+matrix = convert_to_matrix(file)
 
 def count_occurrences(matrix)
   word = "XMAS"

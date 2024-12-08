@@ -1,16 +1,11 @@
 #!/usr/bin/env ruby
 
+require_relative '../helpers/matrix'
+
 # Part 1
 file = File.read('2024/day-06/day-06-inputs.txt')
 
-matrix = []
-# Convert characters into a 2d matrix
-file.each_line.with_index do |line, y|
-  line.chomp.each_char.with_index do |char, x|
-    matrix[y] ||= []
-    matrix[y][x] = char
-  end
-end
+matrix = convert_to_matrix(file)
 
 initial_pos = nil
 matrix.each.with_index do |line, y|
